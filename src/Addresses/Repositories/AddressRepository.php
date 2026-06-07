@@ -23,7 +23,7 @@ final class AddressRepository extends AbstractRepository
 
     protected function applyFilters(Builder $query, AbstractRecord $filters): void
     {
-        if (!$filters instanceof AddressFilterRecord) {
+        if (! $filters instanceof AddressFilterRecord) {
             return;
         }
 
@@ -40,7 +40,7 @@ final class AddressRepository extends AbstractRepository
         }
 
         if ($filters->city !== null) {
-            $query->where('city', 'like', '%' . $filters->city . '%');
+            $query->where('city', 'like', '%'.$filters->city.'%');
         }
 
         if ($filters->country !== null) {

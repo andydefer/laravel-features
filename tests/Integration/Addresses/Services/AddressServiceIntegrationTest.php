@@ -20,6 +20,7 @@ use Illuminate\Support\Collection;
 final class AddressServiceIntegrationTest extends IntegrationTestCase
 {
     private AddressService $addressService;
+
     private TestUser $user;
 
     protected function setUp(): void
@@ -27,7 +28,7 @@ final class AddressServiceIntegrationTest extends IntegrationTestCase
         parent::setUp();
 
         $this->addressService = new AddressService(
-            new AddressRepository()
+            new AddressRepository
         );
 
         $this->user = TestUser::create([
@@ -113,7 +114,7 @@ final class AddressServiceIntegrationTest extends IntegrationTestCase
         $this->assertSame('69001', $updated->postal_code->getValue());
     }
 
-    public function test_updateRaw_updates_with_raw_data_including_null_values(): void
+    public function test_update_raw_updates_with_raw_data_including_null_values(): void
     {
         // Arrange
         $record = AddressRecord::from([
@@ -147,7 +148,7 @@ final class AddressServiceIntegrationTest extends IntegrationTestCase
         ]);
     }
 
-    public function test_updateRaw_updates_only_provided_fields_when_passed_partial_data(): void
+    public function test_update_raw_updates_only_provided_fields_when_passed_partial_data(): void
     {
         // Arrange
         $record = AddressRecord::from([
@@ -180,7 +181,7 @@ final class AddressServiceIntegrationTest extends IntegrationTestCase
         ]);
     }
 
-    public function test_updateRaw_sets_metadata_to_null_when_explicitly_provided(): void
+    public function test_update_raw_sets_metadata_to_null_when_explicitly_provided(): void
     {
         // Arrange
         $metadata = StrictDataObject::from(['key' => 'value']);
@@ -214,7 +215,7 @@ final class AddressServiceIntegrationTest extends IntegrationTestCase
         ]);
     }
 
-    public function test_updateRaw_sets_geo_coordinates_to_null_when_explicitly_provided(): void
+    public function test_update_raw_sets_geo_coordinates_to_null_when_explicitly_provided(): void
     {
         // Arrange
         $coordinates = CoordinatesVO::from([
@@ -251,7 +252,7 @@ final class AddressServiceIntegrationTest extends IntegrationTestCase
         ]);
     }
 
-    public function test_updateRaw_with_empty_data_does_nothing_and_returns_model(): void
+    public function test_update_raw_with_empty_data_does_nothing_and_returns_model(): void
     {
         // Arrange
         $record = AddressRecord::from([
@@ -281,7 +282,7 @@ final class AddressServiceIntegrationTest extends IntegrationTestCase
         ]);
     }
 
-    public function test_updateRaw_throws_exception_when_address_not_found(): void
+    public function test_update_raw_throws_exception_when_address_not_found(): void
     {
         // Assert
         $this->expectException(\RuntimeException::class);

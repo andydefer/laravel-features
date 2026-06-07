@@ -38,9 +38,7 @@ final class AddressService
      * Update an address with raw array data.
      * Use this when you need to set fields to NULL in the database.
      *
-     * @param int $addressId
-     * @param array<string, mixed> $data
-     * @return Model
+     * @param  array<string, mixed>  $data
      */
     public function updateRaw(int $addressId, array $data): Model
     {

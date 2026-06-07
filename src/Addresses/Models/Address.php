@@ -48,7 +48,7 @@ final class Address extends Model
     private static function getEnumService(): EnumService
     {
         if (self::$enumService === null) {
-            self::$enumService = new EnumService();
+            self::$enumService = new EnumService;
         }
 
         return self::$enumService;
@@ -63,7 +63,7 @@ final class Address extends Model
     protected function postalCode(): Attribute
     {
         return Attribute::make(
-            get: fn($value, $attributes) => isset($attributes['postal_code'])
+            get: fn ($value, $attributes) => isset($attributes['postal_code'])
                 ? PostalCodeVO::from($attributes['postal_code'])
                 : null,
         );
@@ -74,7 +74,7 @@ final class Address extends Model
     {
         return Attribute::make(
             get: function ($value, $attributes) {
-                if (!isset($attributes['geo_coordinates']) || !$attributes['geo_coordinates']) {
+                if (! isset($attributes['geo_coordinates']) || ! $attributes['geo_coordinates']) {
                     return null;
                 }
 
@@ -90,11 +90,10 @@ final class Address extends Model
         );
     }
 
-    // Accesseur pour metadata (propriété virtuelle metadata en camelCase)
     protected function metadata(): Attribute
     {
         return Attribute::make(
-            get: fn($value, $attributes) => isset($attributes['metadata']) && $attributes['metadata']
+            get: fn ($value, $attributes) => isset($attributes['metadata']) && $attributes['metadata']
                 ? StrictDataObject::from(
                     is_string($attributes['metadata'])
                         ? json_decode($attributes['metadata'], true)
@@ -107,21 +106,21 @@ final class Address extends Model
     protected function createdAt(): Attribute
     {
         return Attribute::make(
-            get: fn($value) => $value ? DateTimeVO::from($value) : null,
+            get: fn ($value) => $value ? DateTimeVO::from($value) : null,
         );
     }
 
     protected function updatedAt(): Attribute
     {
         return Attribute::make(
-            get: fn($value) => $value ? DateTimeVO::from($value) : null,
+            get: fn ($value) => $value ? DateTimeVO::from($value) : null,
         );
     }
 
     protected function deletedAt(): Attribute
     {
         return Attribute::make(
-            get: fn($value) => $value ? DateTimeVO::from($value) : null,
+            get: fn ($value) => $value ? DateTimeVO::from($value) : null,
         );
     }
 }

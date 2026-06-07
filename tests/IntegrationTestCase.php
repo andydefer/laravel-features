@@ -40,14 +40,20 @@ abstract class IntegrationTestCase extends Orchestra
 
     protected function runMigrations(): void
     {
-        // Charger les migrations du package
-        $packageMigrationPath = __DIR__ . '/../src/Addresses/migrations';
-        if (is_dir($packageMigrationPath)) {
-            $this->loadMigrationsFrom($packageMigrationPath);
+        // Charger les migrations du package Addresses
+        $addressesMigrationPath = __DIR__.'/../src/Addresses/migrations';
+        if (is_dir($addressesMigrationPath)) {
+            $this->loadMigrationsFrom($addressesMigrationPath);
+        }
+
+        // Charger les migrations du package Likes
+        $likesMigrationPath = __DIR__.'/../src/Likes/migrations';
+        if (is_dir($likesMigrationPath)) {
+            $this->loadMigrationsFrom($likesMigrationPath);
         }
 
         // Charger les migrations des fixtures (pour les modèles de test)
-        $fixtureMigrationPath = __DIR__ . '/Fixtures/migrations';
+        $fixtureMigrationPath = __DIR__.'/Fixtures/migrations';
         if (is_dir($fixtureMigrationPath)) {
             $this->loadMigrationsFrom($fixtureMigrationPath);
         }
