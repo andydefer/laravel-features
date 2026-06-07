@@ -23,7 +23,7 @@
         "laravel/framework": "^12.0|^13.0|^14.0|^15.0",
         "andydefer/domain-structures": "^1.16",
         "andydefer/php-vo": "^0.7.0",
-        "andydefer/laravel-repository": "^2.1"
+        "andydefer/laravel-repository": "^2.2"
     },
     "require-dev": {
         "barryvdh/laravel-ide-helper": "^3.6",
