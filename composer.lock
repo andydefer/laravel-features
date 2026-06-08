@@ -59,16 +59,16 @@
         },
         {
             "name": "andydefer/laravel-repository",
-            "version": "v2.3.0",
+            "version": "v2.3.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/andydefer/laravel-repository.git",
-                "reference": "62300b6e714760cc51f26ca3927e8f530b62a5c1"
+                "reference": "185570b1674a413717d48d1edeb64b14380ace59"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/andydefer/laravel-repository/zipball/62300b6e714760cc51f26ca3927e8f530b62a5c1",
-                "reference": "62300b6e714760cc51f26ca3927e8f530b62a5c1",
+                "url": "https://api.github.com/repos/andydefer/laravel-repository/zipball/185570b1674a413717d48d1edeb64b14380ace59",
+                "reference": "185570b1674a413717d48d1edeb64b14380ace59",
                 "shasum": ""
             },
             "require": {
@@ -109,9 +109,9 @@
             "description": "A lightweight, type-safe repository pattern implementation for Laravel",
             "support": {
                 "issues": "https://github.com/andydefer/laravel-repository/issues",
-                "source": "https://github.com/andydefer/laravel-repository/tree/v2.3.0"
+                "source": "https://github.com/andydefer/laravel-repository/tree/v2.3.1"
             },
-            "time": "2026-06-08T02:09:18+00:00"
+            "time": "2026-06-08T03:28:25+00:00"
         },
         {
             "name": "andydefer/php-vo",
