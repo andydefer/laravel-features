@@ -21,7 +21,7 @@ enum LikeType: string
             self::HAHA => '😂',
             self::WOW => '😮',
             self::SAD => '😢',
-            self::ANGRY => '😠',
+            self::ANGRY => '😡',
         };
     }
 

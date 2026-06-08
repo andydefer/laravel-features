@@ -52,6 +52,18 @@ abstract class IntegrationTestCase extends Orchestra
             $this->loadMigrationsFrom($likesMigrationPath);
         }
 
+        // Charger les migrations du package Ratings
+        $ratingsMigrationPath = __DIR__.'/../src/Ratings/migrations';
+        if (is_dir($ratingsMigrationPath)) {
+            $this->loadMigrationsFrom($ratingsMigrationPath);
+        }
+
+        // Charger les migrations du package Comments
+        $commentsMigrationPath = __DIR__.'/../src/Comments/migrations';
+        if (is_dir($commentsMigrationPath)) {
+            $this->loadMigrationsFrom($commentsMigrationPath);
+        }
+
         // Charger les migrations des fixtures (pour les modèles de test)
         $fixtureMigrationPath = __DIR__.'/Fixtures/migrations';
         if (is_dir($fixtureMigrationPath)) {
