@@ -115,16 +115,16 @@
         },
         {
             "name": "andydefer/php-vo",
-            "version": "0.7.1",
+            "version": "0.7.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/andydefer/php-vo.git",
-                "reference": "c61ac3976d562c5366938b202dabae44d38f9343"
+                "reference": "b7175428f50261d1166decd4561206ee3137dcf5"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/andydefer/php-vo/zipball/c61ac3976d562c5366938b202dabae44d38f9343",
-                "reference": "c61ac3976d562c5366938b202dabae44d38f9343",
+                "url": "https://api.github.com/repos/andydefer/php-vo/zipball/b7175428f50261d1166decd4561206ee3137dcf5",
+                "reference": "b7175428f50261d1166decd4561206ee3137dcf5",
                 "shasum": ""
             },
             "require": {
@@ -155,9 +155,9 @@
             "description": "A collection of reusable Value Objects and Enums for PHP applications (Email, Money, Address, PostalCode, Iso8601DateTime, Currency, etc.)",
             "support": {
                 "issues": "https://github.com/andydefer/php-vo/issues",
-                "source": "https://github.com/andydefer/php-vo/tree/0.7.1"
+                "source": "https://github.com/andydefer/php-vo/tree/0.7.2"
             },
-            "time": "2026-06-08T02:11:20+00:00"
+            "time": "2026-06-08T03:19:23+00:00"
         },
         {
             "name": "brick/math",
