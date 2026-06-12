@@ -10,6 +10,8 @@ use AndyDefer\LaravelFeatures\Comments\Repositories\CommentRepository;
 use AndyDefer\LaravelFeatures\Comments\Services\CommentService;
 use AndyDefer\LaravelFeatures\Likes\Repositories\LikeRepository;
 use AndyDefer\LaravelFeatures\Likes\Services\LikeService;
+use AndyDefer\LaravelFeatures\Notifications\Repositories\NotificationRepository;
+use AndyDefer\LaravelFeatures\Notifications\Services\NotificationService;
 use AndyDefer\LaravelFeatures\Ratings\Repositories\RatingRepository;
 use AndyDefer\LaravelFeatures\Ratings\Services\RatingService;
 use Illuminate\Support\ServiceProvider;
@@ -33,6 +35,10 @@ final class LaravelFeaturesServiceProvider extends ServiceProvider
         // Comments
         $this->app->singleton(CommentRepository::class);
         $this->app->singleton(CommentService::class);
+
+        // Notifications
+        $this->app->singleton(NotificationRepository::class);
+        $this->app->singleton(NotificationService::class);
     }
 
     public function boot(): void
@@ -41,5 +47,6 @@ final class LaravelFeaturesServiceProvider extends ServiceProvider
         $this->loadMigrationsFrom(__DIR__.'/Likes/migrations');
         $this->loadMigrationsFrom(__DIR__.'/Ratings/migrations');
         $this->loadMigrationsFrom(__DIR__.'/Comments/migrations');
+        $this->loadMigrationsFrom(__DIR__.'/Notifications/migrations');
     }
 }
