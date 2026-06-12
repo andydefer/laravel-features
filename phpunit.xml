@@ -4,13 +4,41 @@
          bootstrap="vendor/autoload.php"
          colors="true"
          cacheDirectory=".phpunit.cache">
+
     <testsuites>
-        <testsuite name="Integration">
-            <directory>tests/Integration</directory>
+
+        <testsuite name="Directives">
+            <directory>tests/Directives</directory>
         </testsuite>
-        <testsuite name="Unit">
-            <directory>tests/Unit</directory>
+
+        <testsuite name="Addresses">
+            <directory>tests/Modules/Addresses</directory>
         </testsuite>
+
+        <testsuite name="Comments">
+            <directory>tests/Modules/Comments</directory>
+        </testsuite>
+        
+        <testsuite name="Likes">
+            <directory>tests/Modules/Likes</directory>
+        </testsuite>
+
+        <testsuite name="Notifications">
+            <directory>tests/Modules/Notifications</directory>
+        </testsuite>
+
+        <testsuite name="Otps">
+            <directory>tests/Modules/Otps</directory>
+        </testsuite>
+
+        <testsuite name="Ratings">
+            <directory>tests/Modules/Ratings</directory>
+        </testsuite> 
+
+        <testsuite name="Totps">
+            <directory>tests/Modules/Totps</directory>
+        </testsuite> 
+
     </testsuites>
     <php>
         <env name="APP_ENV" value="testing"/>

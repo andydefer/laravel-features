@@ -40,34 +40,25 @@ abstract class IntegrationTestCase extends Orchestra
 
     protected function runMigrations(): void
     {
-        // Charger les migrations du package Addresses
-        $addressesMigrationPath = __DIR__.'/../src/Addresses/migrations';
-        if (is_dir($addressesMigrationPath)) {
-            $this->loadMigrationsFrom($addressesMigrationPath);
-        }
+        $migrationPaths = [
+            // Modules
+            __DIR__.'/../src/Modules/Addresses/migrations',
+            __DIR__.'/../src/Modules/Comments/migrations',
+            __DIR__.'/../src/Modules/Likes/migrations',
+            __DIR__.'/../src/Modules/Notifications/migrations',
+            __DIR__.'/../src/Modules/Ratings/migrations',
+            // Otps
+            __DIR__.'/../src/Modules/Otps/migrations',
+            // Totps
+            __DIR__.'/../src/Modules/Totps/migrations',
+            // Fixtures (test models)
+            __DIR__.'/Fixtures/database/migrations',
+        ];
 
-        // Charger les migrations du package Likes
-        $likesMigrationPath = __DIR__.'/../src/Likes/migrations';
-        if (is_dir($likesMigrationPath)) {
-            $this->loadMigrationsFrom($likesMigrationPath);
-        }
-
-        // Charger les migrations du package Ratings
-        $ratingsMigrationPath = __DIR__.'/../src/Ratings/migrations';
-        if (is_dir($ratingsMigrationPath)) {
-            $this->loadMigrationsFrom($ratingsMigrationPath);
-        }
-
-        // Charger les migrations du package Comments
-        $commentsMigrationPath = __DIR__.'/../src/Comments/migrations';
-        if (is_dir($commentsMigrationPath)) {
-            $this->loadMigrationsFrom($commentsMigrationPath);
-        }
-
-        // Charger les migrations des fixtures (pour les modèles de test)
-        $fixtureMigrationPath = __DIR__.'/Fixtures/migrations';
-        if (is_dir($fixtureMigrationPath)) {
-            $this->loadMigrationsFrom($fixtureMigrationPath);
+        foreach ($migrationPaths as $path) {
+            if (is_dir($path)) {
+                $this->loadMigrationsFrom($path);
+            }
         }
     }
 }

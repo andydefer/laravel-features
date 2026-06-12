@@ -4,49 +4,26 @@ declare(strict_types=1);
 
 namespace AndyDefer\LaravelFeatures;
 
-use AndyDefer\LaravelFeatures\Addresses\Repositories\AddressRepository;
-use AndyDefer\LaravelFeatures\Addresses\Services\AddressService;
-use AndyDefer\LaravelFeatures\Comments\Repositories\CommentRepository;
-use AndyDefer\LaravelFeatures\Comments\Services\CommentService;
-use AndyDefer\LaravelFeatures\Likes\Repositories\LikeRepository;
-use AndyDefer\LaravelFeatures\Likes\Services\LikeService;
-use AndyDefer\LaravelFeatures\Notifications\Repositories\NotificationRepository;
-use AndyDefer\LaravelFeatures\Notifications\Services\NotificationService;
-use AndyDefer\LaravelFeatures\Ratings\Repositories\RatingRepository;
-use AndyDefer\LaravelFeatures\Ratings\Services\RatingService;
+use AndyDefer\LaravelFeatures\Modules\Addresses\AddressesServiceProvider;
+use AndyDefer\LaravelFeatures\Modules\Comments\CommentsServiceProvider;
+use AndyDefer\LaravelFeatures\Modules\Likes\LikesServiceProvider;
+use AndyDefer\LaravelFeatures\Modules\Notifications\NotificationsServiceProvider;
+use AndyDefer\LaravelFeatures\Modules\Ratings\RatingsServiceProvider;
 use Illuminate\Support\ServiceProvider;
 
 final class LaravelFeaturesServiceProvider extends ServiceProvider
 {
     public function register(): void
     {
-        // Addresses
-        $this->app->singleton(AddressRepository::class);
-        $this->app->singleton(AddressService::class);
-
-        // Likes
-        $this->app->singleton(LikeRepository::class);
-        $this->app->singleton(LikeService::class);
-
-        // Ratings
-        $this->app->singleton(RatingRepository::class);
-        $this->app->singleton(RatingService::class);
-
-        // Comments
-        $this->app->singleton(CommentRepository::class);
-        $this->app->singleton(CommentService::class);
-
-        // Notifications
-        $this->app->singleton(NotificationRepository::class);
-        $this->app->singleton(NotificationService::class);
+        $this->app->register(AddressesServiceProvider::class);
+        $this->app->register(CommentsServiceProvider::class);
+        $this->app->register(LikesServiceProvider::class);
+        $this->app->register(NotificationsServiceProvider::class);
+        $this->app->register(RatingsServiceProvider::class);
     }
 
     public function boot(): void
     {
-        $this->loadMigrationsFrom(__DIR__.'/Addresses/migrations');
-        $this->loadMigrationsFrom(__DIR__.'/Likes/migrations');
-        $this->loadMigrationsFrom(__DIR__.'/Ratings/migrations');
-        $this->loadMigrationsFrom(__DIR__.'/Comments/migrations');
-        $this->loadMigrationsFrom(__DIR__.'/Notifications/migrations');
+        // Les migrations sont chargées par chaque module individuellement
     }
 }
